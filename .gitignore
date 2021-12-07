@@ -1,0 +1,14 @@
+# environment variables
+.env
+
+# node modules
+node_modules
+
+# ejecution
+build
+
+# text editor settings
+.vscode
+
+# testing
+coverage
