@@ -28,18 +28,19 @@ userSchema.virtual('password')
     })
     .get(function () {
         return this._password;
-    })
+    });
 
 // Methoss of Schema
 userSchema.methods = {
-    authentiate: function (plaintext) {
-        return this.encryptPassword(plaintext) === this.hashed_password;
+    authenticate: function (plainText) {
+        return this.encryptPassword(plainText) === this.hashed_password;
     },
     encryptPassword: function (password) {
+        if (!password) return '';
         try {
             return crypto.createHmac('sha512', this.salt)
                 .update(password)
-                .digest('hex');
+                .digest('hex')
         } catch (error) {
             return error;
         }
