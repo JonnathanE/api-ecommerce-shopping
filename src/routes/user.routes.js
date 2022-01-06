@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { user } = require('../controllers/user.controller');
+const { update } = require('../controllers/user.controller');
+const { verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middlewares/authJwt');
 
-router.get('/usertest', user);
+// UPDATE
+router.put('/:id', verifyTokenAndAuthorization, update);
 
 module.exports = router;
