@@ -25,3 +25,33 @@ exports.update = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+exports.deleteById = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id);
+        res.status(200).json('User has been deleted...')
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
+
+exports.getUserById = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        const { hashed_password, salt, ...others } = user._doc;
+        res.status(200).json(others);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
+
+exports.getAllUsers = async (req, res) => {
+    const query = req.query.new;
+    let limit = parseInt(req.query.limit, 10) || 5;
+    try {
+        const users = query ? await User.find().sort({ _id: -1 }).limit(limit) : await User.find();
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
