@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middlewares/authJwt');
+const { verifyTokenAndAdmin } = require('../middlewares/authJwt');
 const { create, update, deleteProduct, getProductById, getAllProducts } = require('../controllers/product.controller');
 
 // CREATE A NEW PRODUCT
