@@ -1,7 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 exports.payment = (req, res) => {
-    stripe.changes.create(
+    stripe.charges.create(
         {
             source: req.body.tokenId,
             amount: req.body.amount,
