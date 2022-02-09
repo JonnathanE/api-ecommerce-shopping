@@ -3,6 +3,7 @@ The project is a rest api of a clothing store ecommerce.
 
 The user interface is in the following repository: https://github.com/JonnathanE/ecommerce-shopping
 
+The Admin interface is in the: https://github.com/JonnathanE/admin-dashboard-ecommerce-shopping.git
 ## Authors
 
 - [Espinoza Jonnathan](https://github.com/JonnathanE)
@@ -72,6 +73,8 @@ To run this project, you will need to add the following environment variables to
 
 `DATABASE_TEST`
 
-`JWT_SECRET`
+`JWT_SECRET`=(the secret key for JWT)
 
-`PORT`
+`PORT`=(the port number:500)
+
+`STRIPE_KE` = (stripe private key)
